@@ -11,6 +11,8 @@
 ## Locality Sensistive Hashing
 - Group Members: Yutong Gao, Zhiyuan Ruan, Hongtao Zhao
 - Development Language: Java
+### LSH
+- Locality sensitive hashing(LSH): hashing items into bins many times and looking only at those items that fall into the same bin at least once (without looking at every pair). How do we arrange the only high-similarity items are likely to fall into the same bucket.
 ## Resources
 - [Intro to LSH Video on Youtube](https://www.youtube.com/watch?v=bQAYY8INBxg&t=403s)
 - [Locality-Sensitive Hashing for Scalable Image Search](http://www.cs.utexas.edu/users/grauman/papers/iccv2009_klsh.pdf)
