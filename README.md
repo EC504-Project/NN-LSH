@@ -19,7 +19,7 @@
 - Convert image from RGB to grey scale
 - Implement LSH with cosine similarity
 - Store image using csv file
-- Double check similarity using L1 distance, check how to compute L1 distance between images
+- Double check similarity using [L1 distance](https://stats.stackexchange.com/questions/53068/euclidean-distance-score-and-similarity)
 ### Servral problem:
 1. The data set have 80 millions 32 * 32 pictures and it is too large to handle for us. Perhaps we can use a subset?
 2. The preprocessing of the dataset is necessary. Can we sample several pixels of the picture?
