@@ -1,6 +1,8 @@
 package SerializeTest;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SerializeTest implements java.io.Serializable {
     public String name;
@@ -19,10 +21,12 @@ public class SerializeTest implements java.io.Serializable {
         SerializeTest a = new SerializeTest("Ryan","TestAddress");
         SerializeTest b = new SerializeTest("Gary","Another Test");
         SerializeTest[] test = {a,b};
+        ArrayList<File> testFile = new ArrayList<>();
+        testFile.addAll(Arrays.asList(new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\src\\SerializeTest\\Text").listFiles()));
         try {
             FileOutputStream fileOut = new FileOutputStream("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\src\\SerializeTest\\test.ser");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(test);
+            out.writeObject(testFile);
             out.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
