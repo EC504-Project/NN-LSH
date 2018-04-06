@@ -25,7 +25,7 @@
 2. The preprocessing of the dataset is necessary. Can we sample several pixels of the picture?
 3. The size of the hash table and how many hash tables should we create? The more hash tables we create, the better accuracy will be achieved. However, the computation will be much more complex.
 ## External Library
-- Apache Commons Math3
+- [Apache Commons Math3](http://commons.apache.org/proper/commons-math/)
 
 ## Resources
 - [Intro to LSH Video on Youtube](https://www.youtube.com/watch?v=bQAYY8INBxg&t=403s)
