@@ -29,3 +29,4 @@
 - [Intro to LSH Video on Youtube](https://www.youtube.com/watch?v=bQAYY8INBxg&t=403s)
 - [Locality-Sensitive Hashing for Scalable Image Search](http://www.cs.utexas.edu/users/grauman/papers/iccv2009_klsh.pdf)
 - [Nearest Neighbor Search MIT Lecture](https://www.youtube.com/watch?v=vAboxtLEeH0)
+- [Different Similarities](http://dataaspirant.com/2015/04/11/five-most-popular-similarity-measures-implementation-in-python/)
