@@ -18,7 +18,7 @@
 ### Functions to Implement
 - Convert image from RGB to grey scale
 - Implement LSH with cosine similarity
-- Store image using csv file
+- Store image using [Object Serialization](https://www.tutorialspoint.com/java/java_serialization.htm)
 - Double check similarity using [L1 distance](https://stats.stackexchange.com/questions/53068/euclidean-distance-score-and-similarity)
 ### Servral problem:
 1. The data set have 80 millions 32 * 32 pictures and it is too large to handle for us. Perhaps we can use a subset?
