@@ -1,0 +1,3 @@
+/Users/gaocc/IdeaProjects/lsh/image/castle.jpg
+/Users/gaocc/IdeaProjects/lsh/image/gme.jpg
+/Users/gaocc/IdeaProjects/lsh/image/fear.jpg
