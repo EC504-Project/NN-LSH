@@ -21,3 +21,5 @@ Used to store variables shared across classes
 ### Runner
 All final connection between different modules will be implemented here. Since image to vector module is not
 yet implemented, the connection between modules is not established.
+## Instruction
+Two 1x3 fake image sample data are provided in main(). The code's ability to correctly hash image vectors and store them is tested in main().
