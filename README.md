@@ -14,6 +14,7 @@
 - Because we ignore the length of the vector. We need to do double check when we input a picture to find similiarity. Hamming distance will be helpful. We transfer the picture to gray version and caculate the mean of all the pixels. Compare the value of pixels with mean, if it's large assign 1, otherwise assign 0. Now we get the fingureprint of every picture in the bucket. And we find the bucket input belong to, compare the input fingerprint wich is a list of 0 and 1 to the picture in the bucket then we can find the similarity.
 ### Functions to Implement
 - ~~Convert image from RGB to grey scale~~
+- Convert images to Vectors
 - ~~Implement LSH with cosine similarity~~
 - ~~Store image using [Object Serialization](https://www.tutorialspoint.com/java/java_serialization.htm)~~
 - Double check similarity using [L1 distance](https://stats.stackexchange.com/questions/53068/euclidean-distance-score-and-similarity)
