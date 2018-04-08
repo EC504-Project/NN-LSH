@@ -1,4 +1,4 @@
-#Cosine Hash
+# Cosine Hash
 ## Classes
 ### CosineHashFamily
 CosineHashFamily contains three functions:
