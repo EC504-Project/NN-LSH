@@ -5,9 +5,6 @@
 - **April 9: Midterm Report Due**
 - **May 2: Final Presentation**
 - **May 4: Final Report Due**
-## kd-tree
-- Group Members: Zheng Gu, Zhiyu Wang
-- Development Language: Java
 ## Locality Sensistive Hashing
 - Group Members: Yutong Gao, Zhiyuan Ruan, Hongtao Zhao
 - Development Language: Java
