@@ -26,6 +26,9 @@ public class Runner {
     }
 
     public static void main(String[] args) {
+        /*
+         * Create L hash table, each with b hash vectors
+         */
         ArrayList<double[]> bHashVectors = new ArrayList<>();
         for (int i = 0; i < SharedVariable.numberOfTables; i++) {
             for (int j = 0; j < SharedVariable.numberOfHashes; j++) {
