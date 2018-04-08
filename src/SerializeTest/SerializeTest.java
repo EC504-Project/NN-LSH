@@ -18,9 +18,6 @@ public class SerializeTest implements java.io.Serializable {
     }
 
     public static void main(String[] args) {
-//        SerializeTest a = new SerializeTest("Ryan","TestAddress");
-//        SerializeTest b = new SerializeTest("Gary","Another Test");
-//        SerializeTest[] test = {a,b};
         ArrayList<File> testFile = new ArrayList<>();
         testFile.addAll(Arrays.asList(new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\src\\SerializeTest\\Text").listFiles()));
         try {

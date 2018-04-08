@@ -26,7 +26,7 @@
 3. The size of the hash table and how many hash tables should we create? The more hash tables we create, the better accuracy will be achieved. However, the computation will be much more complex.
 ## External Library
 - [Apache Commons Math3](http://commons.apache.org/proper/commons-math/)
-
+- [Apache Commons Collections3](https://commons.apache.org/proper/commons-collections/)
 ## Resources
 - [Intro to LSH Video on Youtube](https://www.youtube.com/watch?v=bQAYY8INBxg&t=403s)
 - [Locality-Sensitive Hashing for Scalable Image Search](http://www.cs.utexas.edu/users/grauman/papers/iccv2009_klsh.pdf)

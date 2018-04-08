@@ -1,22 +1,21 @@
-import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
+import org.apache.commons.collections4.*;
 
-public class hashData {
-
+public class hashData implements Serializable {
+    private MultiMap m;
     private ArrayList<double[]> bHashVectors;
-    private HashMap<String,ArrayList<File>> buckets;
 
-    public hashData(ArrayList<double[]> bHashVectors, HashMap<String, ArrayList<File>> buckets) {
+    public hashData(ArrayList<double[]> bHashVectors, MultiMap m) {
         this.bHashVectors = bHashVectors;
-        this.buckets = buckets;
+        this.m = m;
     }
 
     public ArrayList<double[]> getbHashVectors() {
         return bHashVectors;
     }
 
-    public HashMap<String, ArrayList<File>> getBuckets() {
-        return buckets;
+    public MultiMap getM() {
+        return m;
     }
 }

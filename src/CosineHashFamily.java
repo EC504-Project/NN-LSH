@@ -39,4 +39,11 @@ public class CosineHashFamily {
             return 0;
         }
     }
+
+    public static void main(String[] args) {
+        double[] test = generateGaussianVector();
+        for(double a : test){
+            System.out.println(a);
+        }
+    }
 }
