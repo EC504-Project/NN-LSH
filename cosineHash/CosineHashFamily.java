@@ -41,9 +41,18 @@ public class CosineHashFamily {
     }
 
     public static void main(String[] args) {
-        double[] test = generateGaussianVector();
-        for(double a : test){
+        double[] testR = generateGaussianVector();
+        double []fake_image = {1,256,30};
+        System.out.println("Vector r is ");
+        for(double a : testR){
             System.out.println(a);
         }
+        System.out.println("Vector image is ");
+        for(double a : fake_image){
+            System.out.println(a);
+        }
+        double result = dotProduct(testR,fake_image);
+        System.out.println("dot result is "+ result);
+        System.out.println("hash result is "+ hash(fake_image,testR));
     }
 }
