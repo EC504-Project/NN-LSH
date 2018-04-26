@@ -1,5 +1,8 @@
 import org.apache.commons.math3.distribution.MultivariateNormalDistribution;
 
+import java.io.File;
+import java.io.IOException;
+
 public class CosineHashFamily {
 
     /**
@@ -21,8 +24,7 @@ public class CosineHashFamily {
      * @return double[]
      */
     public static double[] generateGaussianVector() {
-        MultivariateNormalDistribution b = new MultivariateNormalDistribution(SharedVariable.mean, SharedVariable.identity.getData());
-        return b.sample();
+        return SharedVariable.b.sample();
     }
 
     /**
@@ -40,17 +42,18 @@ public class CosineHashFamily {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         double[] testR = generateGaussianVector();
-        double []fake_image = {1,256,30};
-        System.out.println("Vector r is ");
-        for(double a : testR){
-            System.out.println(a);
-        }
-        System.out.println("Vector image is ");
-        for(double a : fake_image){
-            System.out.println(a);
-        }
+        File a = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\image2vector\\image\\5_15952.jpg");
+        double []fake_image = img2vec.img2vec(a);
+//        System.out.println("Vector r is ");
+//        for(double b : testR){
+//            System.out.println(b);
+//        }
+//        System.out.println("Vector image is ");
+//        for(double b : fake_image){
+//            System.out.println(b);
+//        }
         double result = dotProduct(testR,fake_image);
         System.out.println("dot result is "+ result);
         System.out.println("hash result is "+ hash(fake_image,testR));

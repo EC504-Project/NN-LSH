@@ -9,21 +9,17 @@ import java.io.File;
 import java.io.*;
 
 public class img2vec {
-    public static double [] img2vec(String imgpath) throws IOException {
-        File f = null;
+    public static double [] img2vec(File f) throws IOException {
+
         BufferedImage img = null;
-        //double[] myList = null;
         try {
-            f = new File(imgpath);
+            //f = new File(imgpath);
             img = ImageIO.read(f);
         }catch (IOException e) {
             System.out.println(e);
         }
-        //get image width and height
         int width = img.getWidth();
         int height = img.getHeight();
-        //System.out.println(width);
-        //System.out.println(height);
         int size = width * height;
         double[] myList = new double[size];
         for (int y = 0; y < height; y++) {
@@ -37,11 +33,6 @@ public class img2vec {
                 // put the pixel to the list
                 int index = 32*y +x;
                 myList[index] = avg;
-                
-                //gray version
-                //int p = img.getRGB(x, y);
-                //int index = 32*y +x;
-                //myList[index] = p;
             }
             }
         return myList;
@@ -50,7 +41,8 @@ public class img2vec {
     public static void main(String[] args) {
         try {
             // for using the gray version picture to test, change this path to a gray version image
-            double[] l = img2vec("/Users/gaocc/IdeaProjects/lsh/image/5_15989.jpg");
+            File a = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\image2vector\\image\\5_15952.jpg");
+            double[] l = img2vec(a);
             for(int i =0;i<1024;i++){
                 System.out.println(l[i]);
             }
