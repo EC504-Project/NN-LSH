@@ -37,46 +37,30 @@ public class Runner {
             }
             SharedVariable.collectionOfTables.add(new hashData(bHashVectors,new MultiValueMap()));
         }
-//        double []fake_image = img2vec.img2vec("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\image2vector\\image\\5_15952.jpg");
-//        double[] fake_image2 = img2vec.img2vec("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\image2vector\\image\\5_15952.jpg");
-//        double []fake_image3 = img2vec.img2vec("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\image2vector\\image\\5_15952.jpg");
-//        double[] fake_image4 = img2vec.img2vec("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\image2vector\\image\\5_15952.jpg");
-//        String index1 = "";
-//        String index2 = "";
-//        String index3 = "";
-//        String index4 = "";
-//        for(hashData a: SharedVariable.collectionOfTables){
-//            for (double[] r:a.getbHashVectors()) {
-//                index1 += CosineHashFamily.hash(fake_image,r);
-//            }
-//            System.out.println("fake_image is " + index1);
-//            a.getM().put(index1, fake_image);
-//            index1 = "";
-//        }
-//        for(hashData a: SharedVariable.collectionOfTables){
-//            for (double[] r:a.getbHashVectors()) {
-//                index2 += CosineHashFamily.hash(fake_image2,r);
-//            }
-//            System.out.println("fake_image2 is " + index2);
-//            a.getM().put(index2, fake_image2);
-//            index2 = "";
-//        }
-//        for(hashData a: SharedVariable.collectionOfTables){
-//            for (double[] r:a.getbHashVectors()) {
-//                index3 += CosineHashFamily.hash(fake_image3,r);
-//            }
-//            System.out.println("fake_image3 is " + index3);
-//            a.getM().put(index3 ,fake_image3);
-//            index3 = "";
-//        }
-//        for(hashData a: SharedVariable.collectionOfTables){
-//            for (double[] r:a.getbHashVectors()) {
-//                index4 += CosineHashFamily.hash(fake_image4,r);
-//            }
-//            System.out.println("fake_image4 is " + index4);
-//            a.getM().put(index4 ,fake_image3);
-//            index4 = "";
-//        }
+        /*
+         * Read all images files from folder
+         * hash each images and put them into the table;
+         */
+        File folder = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\image2vector\\image");
+        File image;
+        String[] fileList = folder.list();
+        double[] imageVector;
+        String image_Index = "";
+        for (String filename: fileList){
+            if (filename.endsWith(".jpg")){
+                System.out.println(filename);
+                image = new File(folder.getAbsolutePath() + "\\" + filename);
+                imageVector = img2vec.img2vec(image);
+                for(hashData a: SharedVariable.collectionOfTables){
+                    for (double[] r:a.getbHashVectors()) {
+                        image_Index += CosineHashFamily.hash(imageVector,r);
+                    }
+                    System.out.println("image is " + image_Index);
+                    a.getM().put(image_Index, image);
+                    image_Index = "";
+                }
+            }
+        }
     }
 
 }
