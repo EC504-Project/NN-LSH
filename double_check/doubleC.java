@@ -49,11 +49,9 @@ public class doubleC {
         return hamming;
     }
 
-    public static void main(String[] args) {
+    public static boolean similarityCheck(File f1, File f2) {
         try {
             // for using the gray version picture to test, change this path to a gray version image
-            File f1 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\double_check\\image\\t1.png");
-            File f2 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\double_check\\image\\t2.png");
             int[] l1 = doubleC(f1);
             int[] l2 = doubleC(f2);
             int count = 0;
@@ -64,15 +62,23 @@ public class doubleC {
                     count = count +1;
                 }
             }
-            System.out.println(count);
+            //System.out.println(count);
             if(count >= threshold){
-                System.out.println(" This image is same with the goal image");
+                //System.out.println(" This image is same with the goal image");
+                return true;
             }else{
-                System.out.println(" This image is different with the goal image");
+                //System.out.println(" This image is different with the goal image");
+                return false;
             }
         } catch (IOException e) {
             System.out.println(e);
         }
-        //System.out.println("ok");
+        return false;
+    }
+    public static void main(String[] args) {
+            // for using the gray version picture to test, change this path to a gray version image
+            File f1 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\double_check\\image\\t1.png");
+            File f2 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\double_check\\image\\t2.png");
+            System.out.println(similarityCheck(f1,f2));
     }
 }
