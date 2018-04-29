@@ -52,18 +52,19 @@ public class doubleC {
     public static void main(String[] args) {
         try {
             // for using the gray version picture to test, change this path to a gray version image
-            File f1 = new File("/Users/gaocc/IdeaProjects/lsh/image/5_15989.jpg");
-            File f2 = new File("/Users/gaocc/IdeaProjects/lsh/image/5_15989.jpg");
+            File f1 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\double_check\\image\\t1.png");
+            File f2 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\double_check\\image\\t2.png");
             int[] l1 = doubleC(f1);
             int[] l2 = doubleC(f2);
             int count = 0;
             // to change the same number need to check, change threshold here
-            int threshold = 900;
+            int threshold = 800;
             for(int i =0;i<1024;i++){
                 if(l1[i] == l2[i]){
                     count = count +1;
                 }
             }
+            System.out.println(count);
             if(count >= threshold){
                 System.out.println(" This image is same with the goal image");
             }else{

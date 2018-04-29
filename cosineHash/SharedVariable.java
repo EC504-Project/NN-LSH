@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class SharedVariable {
 
-    static int numberOfHashes = 4; // number of hash vectors per hash table
-    static int numberOfTables = 20; // number of hash tables
+    static int numberOfHashes = 15; // number of hash vectors per hash table
+    static int numberOfTables = 100; // number of hash tables
     static int dimension = 1024 ; // dimension of images
     static double[] mean = new double[dimension]; // mean vector, filled with 0 for standard normal
     static RealMatrix identity = MatrixUtils.createRealIdentityMatrix(dimension); // covariance matrix

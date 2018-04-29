@@ -18,7 +18,7 @@ Used to store variables shared across classes
 - dimensions: dimensions of image vector
 - mean: mean of standard normal distribution
 - collectionOfTables: store all hash tables in form of hashData
-### Runner
+### preprocessing_Runner
 All final connection between different modules will be implemented here. Since image to vector module is not
 yet implemented, the connection between modules is not established.
 #### Instruction

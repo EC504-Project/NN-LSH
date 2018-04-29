@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Runner {
+public class preprocessing_Runner {
 
     /**
      * Write obj to path specified
@@ -41,13 +41,13 @@ public class Runner {
          * Read all images files from folder
          * hash each images and put them into the table;
          */
-        File folder = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\image2vector\\image");
+        File folder = new File(args[0]);
         File image;
         String[] fileList = folder.list();
         double[] imageVector;
         String image_Index = "";
         for (String filename: fileList){
-            if (filename.endsWith(".jpg")){
+            if (filename.endsWith(".jpg") || filename.endsWith(".png")){
                 System.out.println(filename);
                 image = new File(folder.getAbsolutePath() + "\\" + filename);
                 imageVector = img2vec.img2vec(image);
@@ -61,6 +61,7 @@ public class Runner {
                 }
             }
         }
+        writeOutObjects(args[1],SharedVariable.collectionOfTables);
     }
 
 }
