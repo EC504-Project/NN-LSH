@@ -7,20 +7,22 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.File;
 import java.io.*;
+
+
+
 public class doubleC {
     public static int[] doubleC(File f) throws IOException {
 
         BufferedImage img = null;
-
+//        long startTime = System.nanoTime();
         try {
-            //f = new File(imgpath);
             img = ImageIO.read(f);
         } catch (IOException e) {
             System.out.println(e);
         }
-        //int width = img1.getWidth();
-        //int height = img1.getHeight();
-        //int size = width * height;
+//        long endTime = System.nanoTime();
+//        long duration = (endTime - startTime);
+//        System.out.println(duration/1000000);
         double[] myList = new double[1024];
         int sum1 = 0;
         int sum2 = 0;
@@ -37,6 +39,9 @@ public class doubleC {
                 myList[index] = avg;
             }
         }
+//        long endTime1 = System.nanoTime();
+//        long duration1 = (endTime1 - startTime);
+////        System.out.println(duration1/1000000);
         int average = sum1 / 1024;
         int[] hamming = new int[1024];
         for (int i = 0; i < 1024; i++) {
@@ -56,13 +61,13 @@ public class doubleC {
             int[] l2 = doubleC(f2);
             int count = 0;
             // to change the same number need to check, change threshold here
-            int threshold = 800;
+            int threshold = 900;
             for(int i =0;i<1024;i++){
                 if(l1[i] == l2[i]){
                     count = count +1;
                 }
             }
-            //System.out.println(count);
+//            System.out.println(count);
             if(count >= threshold){
                 //System.out.println(" This image is same with the goal image");
                 return true;
@@ -77,8 +82,12 @@ public class doubleC {
     }
     public static void main(String[] args) {
             // for using the gray version picture to test, change this path to a gray version image
-            File f1 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\double_check\\image\\t1.png");
-            File f2 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\double_check\\image\\t2.png");
+            File f1 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\dataset\\testImage\\0_3.jpg");
+            File f2 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\dataset\\testImage\\0_44.jpg");
+            long startTime = System.nanoTime();
             System.out.println(similarityCheck(f1,f2));
+            long endTime1 = System.nanoTime();
+            long duration1 = (endTime1 - startTime);
+            //System.out.println(duration1/1000000);
     }
 }
