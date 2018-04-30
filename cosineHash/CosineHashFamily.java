@@ -35,11 +35,14 @@ public class CosineHashFamily {
      */
     public static int hash(double[] image, double[] r) {
         double dotResult = dotProduct(image,r);
+//        int result = 0;
         if (dotResult > 0) {
             return 1;
         } else {
             return 0;
         }
+//        if (dotResult > 0)
+//            result = 1;
     }
 
     public static void main(String[] args) throws IOException {

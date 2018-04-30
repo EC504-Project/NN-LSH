@@ -62,6 +62,8 @@ public class preprocessing_Runner {
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
         System.out.println(duration/1000000);
+        long hashTime = 0;
+        long toGrayTime = 0;
 //        long endTime = System.nanoTime();
 //        long duration = (endTime - startTime);
 //        System.out.println(duration/1000000);
@@ -74,14 +76,21 @@ public class preprocessing_Runner {
         String[] fileList = folder.list();
         double[] imageVector;
         String image_Index = "";
+
         for (String filename: fileList){
             if (filename.endsWith(".jpg") || filename.endsWith(".png")){
                 //System.out.println(filename);
                 image = new File(folder.getAbsolutePath() + "\\" + filename);
+                long startGray = System.nanoTime();
                 imageVector = img2vec.img2vec(image);
+                long endGray = System.nanoTime();
+                toGrayTime += endGray - startGray;
                 for(hashData a: SharedVariable.collectionOfTables){
                     for (double[] r:a.getbHashVectors()) {
+                        long startHash = System.nanoTime();
                         image_Index += CosineHashFamily.hash(imageVector,r);
+                        long endHash = System.nanoTime();
+                        hashTime += endHash - startHash;
                     }
                     //System.out.println("image is " + image_Index);
                     a.getM().put(image_Index, image);
@@ -96,6 +105,8 @@ public class preprocessing_Runner {
         long endTime2 = System.nanoTime();
         long duration2 = (endTime2 - startTime);
         System.out.println(duration2/1000000);
+        System.out.println("Total time doing gray is " + toGrayTime/1000000);
+        System.out.println("Total Time doing hash is " + hashTime/1000000);
     }
 
 }
