@@ -2,28 +2,25 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class readerTest {
-    public static void main(String[] args) {
-        ArrayList<hashData> a = new ArrayList<>();
-        try {
-            FileInputStream fileIn = new FileInputStream("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\cosineHash\\check.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            a = (ArrayList<hashData>)in.readObject();
-            fileIn.close();
-            in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+    public static void main(String[] args) throws IOException {
+       File test1 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\dataset\\testImage\\0_3.jpg");
+       File test2 = new File("C:\\Users\\ryanr\\IdeaProjects\\NN-LSH\\dataset\\train\\0_37867.jpg");
+       double[] t1 = img2vec.img2vec(test1);
+       double[] t2 = img2vec.img2vec(test2);
+       String index1 = "";
+       String index2 = "";
+       ArrayList<double[]> list = new ArrayList<>();
+        for (int i = 0; i < 30; i++) {
+            list.add(CosineHashFamily.generateGaussianVector());
         }
-        for(hashData tmp: a){
-            ArrayList<File> test = (ArrayList<File>)(tmp.getM().get("110010100111010"));
-            if (test != null) {
-                for (File ab : test) {
-                    System.out.println(ab.getName());
-                }
-            }
+        for (int i = 0; i < 30; i++) {
+            index1 += CosineHashFamily.hash(t1,list.get(i));
+            index2 += CosineHashFamily.hash(t2,list.get(i));
         }
+//        for (int i = 0; i < 100; i++) {
+//            index2 += CosineHashFamily.hash(t2,list.get(i));
+//        }
+       System.out.println(index1);
+        System.out.println(index2);
     }
 }

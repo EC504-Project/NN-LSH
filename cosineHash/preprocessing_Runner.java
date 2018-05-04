@@ -1,6 +1,4 @@
 
-import com.esotericsoftware.kryo.Kryo;
-import com.esotericsoftware.kryo.io.Output;
 import org.apache.commons.collections4.map.MultiValueMap;
 
 import java.io.*;
@@ -13,7 +11,7 @@ public class preprocessing_Runner {
      * @param path path to write obj
      * @param obj object to be written
      */
-    private static Object kryo = new Kryo();
+    //private static Object kryo = new Kryo();
 
     public static void writeOutObjects(String path, Object obj){
         try {
@@ -51,7 +49,7 @@ public class preprocessing_Runner {
         /*
          * Create L hash table, each with b hash vectors
          */
-        long startTime = System.nanoTime();
+        //long startTime = System.nanoTime();
         for (int i = 0; i < SharedVariable.numberOfTables; i++) {
             ArrayList<double[]> bHashVectors = new ArrayList<>();
             for (int j = 0; j < SharedVariable.numberOfHashes; j++) {
@@ -59,38 +57,35 @@ public class preprocessing_Runner {
             }
             SharedVariable.collectionOfTables.add(new hashData(bHashVectors,new MultiValueMap()));
         }
-        long endTime = System.nanoTime();
-        long duration = (endTime - startTime);
-        System.out.println(duration/1000000);
-        long hashTime = 0;
-        long toGrayTime = 0;
 //        long endTime = System.nanoTime();
 //        long duration = (endTime - startTime);
 //        System.out.println(duration/1000000);
+//        long hashTime = 0;
+//        long toGrayTime = 0;
         /*
          * Read all images files from folder
          * hash each images and put them into the table;
          */
         File folder = new File(args[0]);
-        File image;
-        String[] fileList = folder.list();
+        //File image;
+        File[] fileList = folder.listFiles();
         double[] imageVector;
         String image_Index = "";
 
-        for (String filename: fileList){
-            if (filename.endsWith(".jpg") || filename.endsWith(".png")){
+        for (File image: fileList){
+            if (image.getName().endsWith(".jpg") || image.getName().endsWith(".png")){
                 //System.out.println(filename);
-                image = new File(folder.getAbsolutePath() + "\\" + filename);
-                long startGray = System.nanoTime();
+                //image = new File(a.getAbsolutePath());
+                //long startGray = System.nanoTime();
                 imageVector = img2vec.img2vec(image);
-                long endGray = System.nanoTime();
-                toGrayTime += endGray - startGray;
+                //long endGray = System.nanoTime();
+                //toGrayTime += endGray - startGray;
                 for(hashData a: SharedVariable.collectionOfTables){
                     for (double[] r:a.getbHashVectors()) {
-                        long startHash = System.nanoTime();
+                        //long startHash = System.nanoTime();
                         image_Index += CosineHashFamily.hash(imageVector,r);
-                        long endHash = System.nanoTime();
-                        hashTime += endHash - startHash;
+                        //long endHash = System.nanoTime();
+                        //hashTime += endHash - startHash;
                     }
                     //System.out.println("image is " + image_Index);
                     a.getM().put(image_Index, image);
@@ -98,15 +93,10 @@ public class preprocessing_Runner {
                 }
             }
         }
-        long endTime1 = System.nanoTime();
-        long duration1 = (endTime1 - startTime);
-        System.out.println(duration1/1000000);
+
         writeOutObjects(args[1],SharedVariable.collectionOfTables);
-        long endTime2 = System.nanoTime();
-        long duration2 = (endTime2 - startTime);
-        System.out.println(duration2/1000000);
-        System.out.println("Total time doing gray is " + toGrayTime/1000000);
-        System.out.println("Total Time doing hash is " + hashTime/1000000);
+
+        System.out.println("Build done");
     }
 
 }

@@ -54,7 +54,7 @@ public class doubleC {
         return hamming;
     }
 
-    public static boolean similarityCheck(File f1, File f2) {
+    public static int similarityCheck(File f1, File f2) {
         try {
             // for using the gray version picture to test, change this path to a gray version image
             int[] l1 = doubleC(f1);
@@ -70,15 +70,16 @@ public class doubleC {
 //            System.out.println(count);
             if(count >= threshold){
                 //System.out.println(" This image is same with the goal image");
-                return true;
+                //System.out.println(count);
+                return count;
             }else{
                 //System.out.println(" This image is different with the goal image");
-                return false;
+                return 0;
             }
         } catch (IOException e) {
             System.out.println(e);
         }
-        return false;
+        return 0;
     }
     public static void main(String[] args) {
             // for using the gray version picture to test, change this path to a gray version image

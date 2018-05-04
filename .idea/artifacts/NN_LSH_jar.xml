@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NN-LSH:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NN_LSH_jar</output-path>
+    <root id="archive" name="NN-LSH.jar">
+      <element id="module-output" name="NN-LSH" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-collections4/4.0/commons-collections4-4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.3/commons-math3-3.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/esotericsoftware/kryo/kryo/2.20/kryo-2.20.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/esotericsoftware/reflectasm/reflectasm/1.07/reflectasm-1.07.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/ow2/asm/asm/4.0/asm-4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/esotericsoftware/minlog/minlog/1.2/minlog-1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/objenesis/objenesis/1.2/objenesis-1.2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
